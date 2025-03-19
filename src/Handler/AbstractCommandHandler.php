@@ -15,10 +15,9 @@ namespace SerendipityHQ\Component\Messenger\Handler;
 
 use SensioLabs\AnsiConverter\AnsiToHtmlConverter;
 use SerendipityHQ\Integration\AnsiConverter\ShqTheme;
-use Symfony\Component\Messenger\Handler\MessageHandlerInterface;
 use Symfony\Component\Process\Process;
 
-abstract class AbstractCommandHandler implements MessageHandlerInterface
+abstract class AbstractCommandHandler
 {
     private string $kernelProjectDir;
     private bool $successful;
