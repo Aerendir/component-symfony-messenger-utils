@@ -55,8 +55,9 @@ final class DelayStampFactory
             throw new \InvalidArgumentException(sprintf('The passed period "%s" is not allowed. Allowed periods are: %s', $period, \implode(', ', $allowedPeriods)));
         }
 
-        $rescheduleIn = sprintf('+%s %s', $units, $period);
-        $executeAfter = (new \DateTime())->modify($rescheduleIn);
+        // The constructor takes the relative format directly and throws on a malformed one, while
+        // `modify()` is typed as returning `DateTime|false` and would need the false branch handled.
+        $executeAfter = new \DateTime(sprintf('+%s %s', $units, $period));
 
         return self::delayUntil($executeAfter);
     }
