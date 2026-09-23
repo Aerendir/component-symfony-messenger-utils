@@ -27,7 +27,7 @@ final class Rescheduler
     public function __construct(
         LoggerInterface $logger,
         MessageBusInterface $commandBus,
-        DoctrineMessageFinder $doctrineMessageFinder
+        DoctrineMessageFinder $doctrineMessageFinder,
     ) {
         $this->logger                = $logger;
         $this->commandBus            = $commandBus;
