@@ -54,6 +54,12 @@
         ],
         "post-update-cmd": [
             "@composer bin all update --ansi"
+        ],
+        "matrix:compare": [
+            "vendor-bin/ghmatrix/vendor/bin/github-actions-matrix compare"
+        ],
+        "matrix:sync": [
+            "vendor-bin/ghmatrix/vendor/bin/github-actions-matrix sync"
         ]
     },
     "extra": {
