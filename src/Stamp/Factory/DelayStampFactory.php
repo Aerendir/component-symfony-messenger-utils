@@ -13,7 +13,6 @@ declare(strict_types=1);
 
 namespace SerendipityHQ\Component\Messenger\Stamp\Factory;
 
-use DateTime;
 use Symfony\Component\Messenger\Stamp\DelayStamp;
 
 /**
