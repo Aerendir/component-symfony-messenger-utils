@@ -13,7 +13,6 @@ declare(strict_types=1);
 
 namespace SerendipityHQ\Component\Messenger\Stamp;
 
-use Safe\DateTimeImmutable;
 use SerendipityHQ\Component\Messenger\Stamp\Factory\DelayStampFactory;
 use Symfony\Component\Messenger\Stamp\DelayStamp;
 
@@ -35,7 +34,7 @@ final class ExecuteAfterDateStamp
 
     public static function executeAfter(\DateTimeInterface $executeAfter): DelayStamp
     {
-        $now  = (int) (new DateTimeImmutable())->format('U');
+        $now  = (int) (new \DateTimeImmutable())->format('U');
         $diff = \abs((int) $executeAfter->format('U') - $now) * 1_000;
 
         return new DelayStamp($diff);

@@ -1,32 +1,104 @@
 parameters:
 	ignoreErrors:
 		-
-			message: "#^Strict comparison using \\=\\=\\= between false and true will always evaluate to false\\.$#"
+			message: '#^Call to function is_array\(\) with list\<array\<string, mixed\>\> will always evaluate to true\.$#'
+			identifier: function.alreadyNarrowedType
 			count: 1
 			path: src/Finder/DoctrineMessageFinder.php
 
 		-
-			message: "#^Call to method setTimeout\\(\\) on an unknown class Symfony\\\\Component\\\\Process\\\\Process\\.$#"
+			message: '#^Parameter \#3 \.\.\.\$values of function sprintf expects bool\|float\|int\|string\|null, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Finder/DoctrineMessageFinder.php
+
+		-
+			message: '#^Strict comparison using \=\=\= between false and true will always evaluate to false\.$#'
+			identifier: identical.alwaysFalse
+			count: 1
+			path: src/Finder/DoctrineMessageFinder.php
+
+		-
+			message: '#^Call to method setTimeout\(\) on an unknown class Symfony\\Component\\Process\\Process\.$#'
+			identifier: class.notFound
 			count: 1
 			path: src/Handler/AbstractCommandHandler.php
 
 		-
-			message: "#^Class DateTimeImmutable is unsafe to use\\. Its methods can return FALSE instead of throwing an exception\\. Please add 'use Safe\\\\DateTimeImmutable;' at the beginning of the file to use the variant provided by the 'thecodingmachine/safe' library\\.$#"
+			message: '#^Cannot call method getCommandLine\(\) on mixed\.$#'
+			identifier: method.nonObject
 			count: 1
 			path: src/Handler/AbstractCommandHandler.php
 
 		-
-			message: "#^Instantiated class Symfony\\\\Component\\\\Process\\\\Process not found\\.$#"
+			message: '#^Cannot call method getErrorOutput\(\) on mixed\.$#'
+			identifier: method.nonObject
 			count: 1
 			path: src/Handler/AbstractCommandHandler.php
 
 		-
-			message: "#^Method SerendipityHQ\\\\Component\\\\Messenger\\\\Handler\\\\AbstractCommandHandler\\:\\:run\\(\\) has parameter \\$optsAndArgs with no value type specified in iterable type array\\.$#"
+			message: '#^Cannot call method getExitCode\(\) on mixed\.$#'
+			identifier: method.nonObject
 			count: 1
 			path: src/Handler/AbstractCommandHandler.php
 
 		-
-			message: "#^Method SerendipityHQ\\\\Component\\\\Messenger\\\\Handler\\\\AbstractCommandHandler\\:\\:run\\(\\) return type has no value type specified in iterable type array\\.$#"
+			message: '#^Cannot call method getExitCodeText\(\) on mixed\.$#'
+			identifier: method.nonObject
 			count: 1
 			path: src/Handler/AbstractCommandHandler.php
+
+		-
+			message: '#^Cannot call method getOutput\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/Handler/AbstractCommandHandler.php
+
+		-
+			message: '#^Cannot call method isSuccessful\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/Handler/AbstractCommandHandler.php
+
+		-
+			message: '#^Cannot call method run\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/Handler/AbstractCommandHandler.php
+
+		-
+			message: '#^Instantiated class Symfony\\Component\\Process\\Process not found\.$#'
+			identifier: class.notFound
+			count: 1
+			path: src/Handler/AbstractCommandHandler.php
+
+		-
+			message: '#^Method SerendipityHQ\\Component\\Messenger\\Handler\\AbstractCommandHandler\:\:run\(\) has parameter \$optsAndArgs with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/Handler/AbstractCommandHandler.php
+
+		-
+			message: '#^Method SerendipityHQ\\Component\\Messenger\\Handler\\AbstractCommandHandler\:\:run\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/Handler/AbstractCommandHandler.php
+
+		-
+			message: '#^Parameter \#2 \$string of function explode expects string, mixed given\.$#'
+			identifier: argument.type
+			count: 2
+			path: src/Handler/AbstractCommandHandler.php
+
+		-
+			message: '#^Property SerendipityHQ\\Component\\Messenger\\Handler\\AbstractCommandHandler\:\:\$successful \(bool\) does not accept mixed\.$#'
+			identifier: assign.propertyType
+			count: 1
+			path: src/Handler/AbstractCommandHandler.php
+
+		-
+			message: '#^Trait SerendipityHQ\\Component\\Messenger\\Message\\Property\\Reschedulable is used zero times and is not analysed\.$#'
+			identifier: trait.unused
+			count: 1
+			path: src/Message/Property/Reschedulable.php
 

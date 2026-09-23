@@ -19,8 +19,6 @@ use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\PropertyAccess\PropertyAccessorInterface;
 use Symfony\Component\PropertyInfo\PropertyInfoExtractorInterface;
 
-use function Safe\sprintf;
-
 final class DoctrineMessageFinder
 {
     private Connection $connection;
