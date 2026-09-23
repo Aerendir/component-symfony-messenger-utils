@@ -24,7 +24,7 @@
         "bamarni/composer-bin-plugin": "^1.4",
         "doctrine/orm": "^2.11",
         "phpstan/phpstan": "2.2.14",
-        "phpstan/phpstan-phpunit": "2.0.16",
+        "phpstan/phpstan-phpunit": "2.0.18",
         "rector/rector": "2.6.7",
         "roave/security-advisories": "dev-master",
         "serendipity_hq/ansi-converter-shq-theme": "^1.0",
