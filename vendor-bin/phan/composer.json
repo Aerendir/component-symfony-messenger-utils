@@ -2,10 +2,5 @@
     "require-dev": {
         "phan/phan": "^6.0",
         "drenso/phan-extensions": "3.5.1"
-    },
-    "config": {
-        "platform": {
-            "php": "8.3.16"
-        }
     }
 }
