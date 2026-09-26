@@ -68,6 +68,13 @@ updates:
       versioning-strategy: increase
       target-branch: "dev"
       directory: "/vendor-bin/phpunit/"
+      ignore:
+          # PHPUnit 13 requires PHP >= 8.4.1, and this matrix runs 8.3 on its lowest column: it
+          # cannot be installed there. Widening the requirement into a union of lines is not the
+          # answer either — a suite is written against one major only. Remove this entry when the
+          # matrix floor reaches 8.4.1, in the same change that raises it.
+          - dependency-name: "phpunit/phpunit"
+            versions: [">=13"]
       schedule:
           interval: "daily"
       allow:
