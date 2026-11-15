@@ -19,17 +19,13 @@ use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\PropertyAccess\PropertyAccessorInterface;
 use Symfony\Component\PropertyInfo\PropertyInfoExtractorInterface;
 
-final class DoctrineMessageFinder
+final readonly class DoctrineMessageFinder
 {
     private Connection $connection;
-    private PropertyAccessorInterface $propertyAccessor;
-    private PropertyInfoExtractorInterface $propertyInfoExtractor;
 
-    public function __construct(EntityManagerInterface $entityManager, PropertyAccessorInterface $propertyAccessor, PropertyInfoExtractorInterface $propertyInfoExtractor)
+    public function __construct(EntityManagerInterface $entityManager, private PropertyAccessorInterface $propertyAccessor, private PropertyInfoExtractorInterface $propertyInfoExtractor)
     {
         $this->connection            = $entityManager->getConnection();
-        $this->propertyAccessor      = $propertyAccessor;
-        $this->propertyInfoExtractor = $propertyInfoExtractor;
     }
 
     public function exists(object $message, bool $onlyNotAlreadyDelivered = true): bool
