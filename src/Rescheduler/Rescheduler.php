@@ -18,20 +18,10 @@ use SerendipityHQ\Component\Messenger\Finder\DoctrineMessageFinder;
 use SerendipityHQ\Component\Messenger\Stamp\Factory\DelayStampFactory;
 use Symfony\Component\Messenger\MessageBusInterface;
 
-final class Rescheduler
+final readonly class Rescheduler
 {
-    private LoggerInterface $logger;
-    private MessageBusInterface $commandBus;
-    private DoctrineMessageFinder $doctrineMessageFinder;
-
-    public function __construct(
-        LoggerInterface $logger,
-        MessageBusInterface $commandBus,
-        DoctrineMessageFinder $doctrineMessageFinder,
-    ) {
-        $this->logger                = $logger;
-        $this->commandBus            = $commandBus;
-        $this->doctrineMessageFinder = $doctrineMessageFinder;
+    public function __construct(private LoggerInterface $logger, private MessageBusInterface $commandBus, private DoctrineMessageFinder $doctrineMessageFinder)
+    {
     }
 
     public function reschedule(object $message, int $delayUnits, string $delayPeriod, bool $ensureUniqueness = true): void
