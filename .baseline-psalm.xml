@@ -1,33 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="5.0.0@4e177bf0c9f03c17d2fbfd83b7cc9c47605274d8">
+<files psalm-version="6.18.0@536dd6236b39a5115385b0307b42d6d1ad431a02">
   <file src="src/Finder/DoctrineMessageFinder.php">
-    <DeprecatedFunction occurrences="3">
-      <code>sprintf("(body::json-&gt;&gt;'%s')::boolean = %s", $propertyName, $value)</code>
-      <code>sprintf("body::json-&gt;&gt;'%s' = '%s'", $propertyName, $value)</code>
-      <code>sprintf("headers::json-&gt;&gt;'type' = '%s'", \get_class($message))</code>
-    </DeprecatedFunction>
-    <RedundantCondition occurrences="1">
-      <code>\is_array($result)</code>
+    <PossiblyUnusedMethod>
+      <code><![CDATA[__construct]]></code>
+    </PossiblyUnusedMethod>
+    <RedundantCondition>
+      <code><![CDATA[\is_array($result)]]></code>
     </RedundantCondition>
-    <TypeDoesNotContainType occurrences="1">
-      <code>false === \is_array($result)</code>
+    <TypeDoesNotContainType>
+      <code><![CDATA[false === \is_array($result)]]></code>
     </TypeDoesNotContainType>
   </file>
   <file src="src/Handler/AbstractCommandHandler.php">
-    <DeprecatedInterface occurrences="1">
-      <code>AbstractCommandHandler</code>
-    </DeprecatedInterface>
-    <PropertyNotSetInConstructor occurrences="1">
-      <code>$successful</code>
+    <PropertyNotSetInConstructor>
+      <code><![CDATA[$successful]]></code>
     </PropertyNotSetInConstructor>
-    <UndefinedClass occurrences="1">
-      <code>Process</code>
+    <UndefinedClass>
+      <code><![CDATA[Process]]></code>
     </UndefinedClass>
+    <UnusedClass>
+      <code><![CDATA[AbstractCommandHandler]]></code>
+    </UnusedClass>
+  </file>
+  <file src="src/Message/Property/ReschedulableInterface.php">
+    <UnusedClass>
+      <code><![CDATA[ReschedulableInterface]]></code>
+    </UnusedClass>
+  </file>
+  <file src="src/Rescheduler/Rescheduler.php">
+    <UnusedClass>
+      <code><![CDATA[Rescheduler]]></code>
+    </UnusedClass>
+  </file>
+  <file src="src/Stamp/ExecuteAfterDateStamp.php">
+    <PossiblyUnusedMethod>
+      <code><![CDATA[executeAfter]]></code>
+    </PossiblyUnusedMethod>
+    <UnusedConstructor>
+      <code><![CDATA[__construct]]></code>
+    </UnusedConstructor>
   </file>
   <file src="src/Stamp/Factory/DelayStampFactory.php">
-    <DeprecatedFunction occurrences="2">
-      <code>sprintf('+%s %s', $units, $period)</code>
-      <code>sprintf('The passed period "%s" is not allowed. Allowed periods are: %s', $period, \implode(', ', $allowedPeriods))</code>
-    </DeprecatedFunction>
+    <UnusedConstructor>
+      <code><![CDATA[__construct]]></code>
+    </UnusedConstructor>
   </file>
 </files>

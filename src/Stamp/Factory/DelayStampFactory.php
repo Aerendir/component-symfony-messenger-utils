@@ -13,11 +13,7 @@ declare(strict_types=1);
 
 namespace SerendipityHQ\Component\Messenger\Stamp\Factory;
 
-use Safe\DateTime;
-use Safe\DateTimeImmutable;
 use Symfony\Component\Messenger\Stamp\DelayStamp;
-
-use function Safe\sprintf;
 
 /**
  * Creates a DelayStamp starting from a date in the future.
@@ -41,7 +37,7 @@ final class DelayStampFactory
 
     public static function delayUntil(\DateTimeInterface $executeAfter): DelayStamp
     {
-        $now  = (int) (new DateTimeImmutable())->setTimezone($executeAfter->getTimezone())->format('U');
+        $now  = (int) (new \DateTimeImmutable())->setTimezone($executeAfter->getTimezone())->format('U');
         $diff = \abs((int) $executeAfter->format('U') - $now) * 1_000;
 
         return new DelayStamp($diff);
@@ -55,12 +51,13 @@ final class DelayStampFactory
     public static function delayFor(int $units, string $period): DelayStamp
     {
         $allowedPeriods = [self::PERIOD_SECONDS, self::PERIOD_MINUTES, self::PERIOD_HOURS, self::PERIOD_DAYS, self::PERIOD_WEEKS, self::PERIOD_MONTHS, self::PERIOD_YEARS];
-        if (false === \in_array($period, $allowedPeriods)) {
+        if (false === \in_array($period, $allowedPeriods, true)) {
             throw new \InvalidArgumentException(sprintf('The passed period "%s" is not allowed. Allowed periods are: %s', $period, \implode(', ', $allowedPeriods)));
         }
 
-        $rescheduleIn = sprintf('+%s %s', $units, $period);
-        $executeAfter = (new DateTime())->modify($rescheduleIn);
+        // The constructor takes the relative format directly and throws on a malformed one, while
+        // `modify()` is typed as returning `DateTime|false` and would need the false branch handled.
+        $executeAfter = new \DateTime(sprintf('+%s %s', $units, $period));
 
         return self::delayUntil($executeAfter);
     }

@@ -19,15 +19,13 @@ use Symfony\Component\Process\Process;
 
 abstract class AbstractCommandHandler
 {
-    private string $kernelProjectDir;
     private bool $successful;
-    private AnsiToHtmlConverter $ansiConverter;
+    private readonly AnsiToHtmlConverter $ansiConverter;
 
-    public function __construct(string $kernelProjectDir)
+    public function __construct(private readonly string $kernelProjectDir)
     {
         $theme                  = new ShqTheme();
         $this->ansiConverter    = new AnsiToHtmlConverter($theme);
-        $this->kernelProjectDir = $kernelProjectDir;
     }
 
     protected function run(string $command, array $optsAndArgs): array
